@@ -30,6 +30,12 @@ Suggested command (run from anywhere):
 cp -r /workspaces/c2c-full-stack-102/lesson-06/app/client /workspaces/c2c-full-stack-102/lesson-07/app/
 ```
 
+Alternative (if you don’t have a working client from Lesson 06 / Lesson 07 yet):
+
+```bash
+cp -r /workspaces/c2c-full-stack-102/lesson-08/client /workspaces/c2c-full-stack-102/lesson-07/app/client
+```
+
 ## Requirements / Resources
 
 - VS Code extension: Database Client by cweijan (`cweijan.vscode-database-client2`)
