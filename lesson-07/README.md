@@ -21,24 +21,28 @@ Because you are working from a fork, sync it first so you have the latest lesson
 
 Lesson 07 includes a server starter in `/workspaces/c2c-full-stack-102/lesson-07/app/server`. You only need to bring forward the React client from Lesson 06.
 
-1. Make sure this folder exists: `/workspaces/c2c-full-stack-102/lesson-07/app/`
-2. Copy only the `client` directory from Lesson 06 into Lesson 07.
-3. Confirm you now have `/workspaces/c2c-full-stack-102/lesson-07/app/client/`.
+1. Copy only the `client` directory from Lesson 06 into Lesson 07.
+2. Confirm you now have `/workspaces/c2c-full-stack-102/lesson-07/app/client/`.
 
 Suggested command (run from anywhere):
 
 ```bash
-mkdir -p /workspaces/c2c-full-stack-102/lesson-07/app
 cp -r /workspaces/c2c-full-stack-102/lesson-06/app/client /workspaces/c2c-full-stack-102/lesson-07/app/
 ```
 
 ## Requirements / Resources
 
+- VS Code extension: Database Client by cweijan (`cweijan.vscode-database-client2`)
+- MySQL connection info (dev container defaults):
+  - Host: `127.0.0.1`
+  - Port: `3306`
+  - User: `root`
+  - Password: `password`
 - MySQL INSERT reference (w3schools): https://www.w3schools.com/sql/sql_insert.asp
 
 ## Agenda
 
-- Do Now: practice `INSERT INTO` in MySQL Workbench
+- Do Now: practice `INSERT INTO` using VS Code Database Client
 - Section 1.1: MySQL database connection (server)
 - Section 1.2: Test insert via a server route
 - Section 1.3: Create a submit function (React → API)
@@ -48,13 +52,25 @@ cp -r /workspaces/c2c-full-stack-102/lesson-06/app/client /workspaces/c2c-full-s
 
 ## Do Now (MySQL Insert)
 
-In MySQL Workbench, create a small example table for customers and insert one row.
+Using the VS Code Database Client extension (cweijan), create a small example table for customers and insert one row.
 
-1. Create a database + table:
+If you don’t already have a MySQL connection set up in VS Code:
+
+- Open the **Database Client** view.
+- Click **Add Connection** → choose **MySQL**.
+- Enter the connection info from **Requirements / Resources**.
+- Test/Save the connection and connect.
+
+1. (Optional) Create the database (skip if it already exists):
 
 ```sql
-CREATE DATABASE IF NOT EXISTS do_now;
-USE do_now;
+CREATE DATABASE IF NOT EXISTS example;
+```
+
+2. Create the table (in the `example` database):
+
+```sql
+USE example;
 
 CREATE TABLE IF NOT EXISTS customers (
    first_name VARCHAR(50),
@@ -64,9 +80,11 @@ CREATE TABLE IF NOT EXISTS customers (
 );
 ```
 
-2. Insert sample data:
+3. Insert sample data:
 
 ```sql
+USE example;
+
 INSERT INTO customers (first_name, last_name, email, dob)
 VALUES ('John', 'Doe', 'johndoe@example.com', '03-13-90');
 ```
@@ -77,11 +95,11 @@ Open your server entry file (created in Lesson 06):
 
 - `/workspaces/c2c-full-stack-102/lesson-07/app/server/index.js`
 
-Install dependencies (add what you don’t already have):
+Install dependencies (already listed in `package.json`):
 
 ```bash
 cd /workspaces/c2c-full-stack-102/lesson-07/app/server
-npm install mysql2 cors
+npm install
 ```
 
 Then create your connection pool near the top of `index.js`:
@@ -130,11 +148,11 @@ Open your React app file:
 
 - `/workspaces/c2c-full-stack-102/lesson-07/app/client/src/App.js`
 
-Install Axios:
+Install dependencies (Axios is included when copying the Lesson 06 client from this repo):
 
 ```bash
 cd /workspaces/c2c-full-stack-102/lesson-07/app/client
-npm install axios
+npm install
 ```
 
 In `App.js`:
