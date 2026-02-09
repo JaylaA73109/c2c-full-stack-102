@@ -6,6 +6,18 @@ This lesson folder currently contains the **end-state (completed) app for Lesson
 
 - `/workspaces/c2c-full-stack-102/lesson-09/starter/app`
 
+## Before You Start: Sync Your Fork
+
+Because you are working from a fork, make sure your fork (and your Codespace) are up to date.
+
+1. In the GitHub website, open **your fork** of this repo.
+2. Click **Sync fork** (or **Fetch upstream**) and complete the prompts.
+3. In your Codespace terminal (inside VS Code), pull the latest changes:
+
+```bash
+git pull
+```
+
 ## Step 0: Create Your Working App Folder
 
 Before you run or edit anything, create the working folder for this lesson by copying an `app/` directory into `lesson-09/app`.

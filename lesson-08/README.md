@@ -8,6 +8,18 @@ In this lesson you will add a **search feature** to the CRUD app you built in Le
 - Use SQL `SELECT ... WHERE ...` to retrieve specific rows from MySQL
 - Display search results in the React UI
 
+## Before You Start: Sync Your Fork
+
+Because you are working from a fork, make sure your fork (and your Codespace) are up to date.
+
+1. In the GitHub website, open **your fork** of this repo.
+2. Click **Sync fork** (or **Fetch upstream**) and complete the prompts.
+3. In your Codespace terminal (inside VS Code), pull the latest changes:
+
+```bash
+git pull
+```
+
 ## What You Start With (Starter Code)
 
 If you choose to start from the provided starter (Option B in Step 0), it already includes the Lesson 07 baseline so you can focus on **search**:
