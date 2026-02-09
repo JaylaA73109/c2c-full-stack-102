@@ -2,8 +2,6 @@
 
 In this lesson you will add a **search feature** to the CRUD app you built in Lesson 07.
 
-Lesson plan reference: `/workspaces/c2c-full-stack-102/lesson_material/lesson-8__lesson_8.txt`
-
 ## Learning Objectives (SWBAT)
 
 - Build a search UI using React state + a GET request
@@ -12,7 +10,7 @@ Lesson plan reference: `/workspaces/c2c-full-stack-102/lesson_material/lesson-8_
 
 ## What You Start With (Starter Code)
 
-This folder already includes the Lesson 07 baseline so you can focus on **search**:
+If you choose to start from the provided starter (Option B in Step 0), it already includes the Lesson 07 baseline so you can focus on **search**:
 
 - React client with an **insert form**: `/workspaces/c2c-full-stack-102/lesson-08/starter/app/client`
 - Express server with a **MySQL connection + insert route**: `/workspaces/c2c-full-stack-102/lesson-08/starter/app/server`
@@ -56,7 +54,7 @@ CREATE TABLE IF NOT EXISTS customers (
 
 Before you start coding, create the working folder for this lesson by copying an `app/` directory into `lesson-08/app`.
 
-Option A (preferred): copy **your completed app from the prior lesson**:
+Option A: copy **your completed app from the prior lesson**:
 
 ```bash
 cp -r /workspaces/c2c-full-stack-102/lesson-07/app /workspaces/c2c-full-stack-102/lesson-08/app
@@ -80,7 +78,7 @@ Server:
 ```bash
 cd /workspaces/c2c-full-stack-102/lesson-08/app/server
 npm install
-npm run start
+npm run devStart
 ```
 
 Client:
@@ -97,9 +95,11 @@ Open the client at `http://localhost:3000`.
 
 If you’re running this in a GitHub Codespace, **do not hard-code** `http://localhost:3001` in your React app.
 
+If you copied the provided starter (Option B), this is already set up for you (it uses a React dev-server proxy and relative API URLs).
+
 In Codespaces, your browser is not “inside” the container, so `localhost:3001` points to your own computer—not the Codespace—so requests fail and often show up as a CORS error.
 
-Fix (recommended): use the React dev server proxy + relative URLs.
+If you copied your prior lesson app (Option A) and you see this issue, fix it by using the React dev server proxy + relative URLs.
 
 1. In the client `package.json`, add:
 
