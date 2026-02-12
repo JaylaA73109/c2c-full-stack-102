@@ -11,12 +11,11 @@ const ContactForm = () => {
   });
 
   // Lesson 9 TODO: Step 2 – Send this data to your Express endpoint once it's implemented.
-  // Lesson 9 TODO: Step 3 – Handle both success and failure responses from the server.
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      // Reminder: set REACT_APP_API_BASE_URL in your .env once your Express server is up.
-      .post(`${process.env.REACT_APP_API_BASE_URL}/submit-form`, formData)
+      // Use CRA's `proxy` (package.json) so this works in Codespaces too.
+      .post(`/submit-form`, formData)
       .then((response) => {
         console.log(response.data);
         // TODO: replace this console.log with user feedback once the POST route is working.
