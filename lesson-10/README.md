@@ -114,8 +114,8 @@ CREATE TABLE products (
 
 ```sql
 INSERT INTO products (name, description, price, image_url) VALUES
-('Product 1', 'Description for product 1', 19.99, 'https://via.placeholder.com/150'),
-('Product 2', 'Description for product 2', 29.99, 'https://via.placeholder.com/150');
+('Product 1', 'Description for product 1', 19.99, 'https://progressivegrower.com/wp-content/uploads/2021/02/coming-soon-product-image.png'),
+('Product 2', 'Description for product 2', 29.99, 'https://progressivegrower.com/wp-content/uploads/2021/02/coming-soon-product-image.png');
 ```
 
 ---
@@ -163,22 +163,30 @@ app.get("/api/ecommerce/products", (req, res) => {
      // import productImg from "../images/productImg.png";
      ```
 
-2. Set up state and fetch logic (use a relative URL for the API endpoint):
+2. **Remove the hardcoded products useState:**
+   - Delete the line:
+     ```js
+     const [products] = useState([ ... ]);
+     ```
+   - Remove the hardcoded product array.
 
-   ```js
-   const [products, setProducts] = useState([]);
+3. **Replace with API response:**
+   - Add this instead:
 
-   useEffect(() => {
-     axios
-       .get("/api/ecommerce/products")
-       .then((res) => {
-         setProducts(res.data);
-       })
-       .catch((err) => console.log(err));
-   }, []);
-   ```
+     ```js
+     const [products, setProducts] = useState([]);
 
-3. Render the products:
+     useEffect(() => {
+       axios
+         .get("/api/ecommerce/products")
+         .then((res) => {
+           setProducts(res.data);
+         })
+         .catch((err) => console.log(err));
+     }, []);
+     ```
+
+4. Render the products:
 
 ```js
 <div id="shopping">
