@@ -87,7 +87,7 @@ const Featured = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/ecommerce/products`)
+      .get("/api/ecommerce/products")
       .then((res) => {
         const list = Array.isArray(res.data) ? res.data : [];
         setProducts(list.slice(0, 5));
